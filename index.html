@@ -1,0 +1,147 @@
+<html>
+<head>
+    <script>
+        var url = "demo.asp";
+        var data = {
+            id: 999,
+            request_type: 3,
+        };
+
+        var xhttp = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        xhttp.onreadystatechange=function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // some function
+            }
+        };
+        xhttp.open("POST", url, true);
+        xhttp.setRequestHeader("Authorization", "hello world");
+        xhttp.setRequestHeader("Accept", "application/json");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(data));
+    </script>
+
+    <style>
+        button#btn-join {
+            background-color: #5c6ac4;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        button#btn-join:hover {
+            background-color: #202e78;
+            box-shadow: 0px 0px 2px 2px rgba(92,106,196,0.5);
+        }
+    </style>
+
+    <!-- google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <!-- Alpine JS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body >
+<div class="container-fluid py-3">
+
+    <h3>Question 4</h3>
+    <div>
+        <button id="btn-join">Join Now</button>
+    </div>
+
+    <hr>
+
+    <h3>Question 5</h3>
+    <div class="row">
+        <div class="col">
+            <div id="accordion" x-data="{accordion: 'collapse1'}">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" href="#collapse1" 
+                            @click="accordion = (accordion == 'collapse1') ? '' : 'collapse1';">
+                            <i class="material-icons float-right">
+                                <span x-show="(accordion != 'collapse1')">keyboard_arrow_down</span>
+                                <span x-show="(accordion == 'collapse1')">keyboard_arrow_up</span>
+                            </i>
+                            <div>Collapsible Group Item #1</div>
+                        </a>
+                    </div>
+                    <div id="collapse1" x-show="(accordion == 'collapse1')" data-parent="#accordion">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" href="#collapse2" 
+                            @click="accordion = (accordion == 'collapse2') ? '' : 'collapse2';">
+                            <i class="material-icons float-right">
+                                <span x-show="(accordion != 'collapse2')">keyboard_arrow_down</span>
+                                <span x-show="(accordion == 'collapse2')">keyboard_arrow_up</span>
+                            </i>
+                            <div>Collapsible Group Item #2</div>
+                        </a>
+                    </div>
+                    <div id="collapse2" x-show="(accordion == 'collapse2')" data-parent="#accordion">
+                        <div class="card-body">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" href="#collapse3" 
+                            @click="accordion = (accordion == 'collapse3') ? '' : 'collapse3';">
+                            <i class="material-icons float-right">
+                                <span x-show="(accordion != 'collapse3')">keyboard_arrow_down</span>
+                                <span x-show="(accordion == 'collapse3')">keyboard_arrow_up</span>
+                            </i>
+                            <div>Collapsible Group Item #3</div>
+                        </a>
+                    </div>
+                    <div id="collapse3" x-show="(accordion == 'collapse3')" data-parent="#accordion">
+                        <div class="card-body">
+                            Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div>
+                <a class="btn btn-primary text-uppercase px-4" href="#">Link with Href</a>
+                <button class="btn btn-primary text-uppercase px-4" data-target="#">Button with Data-Target</button>
+            </div>
+
+            <div class="bg-white shadow rounded p-4 mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. 
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
